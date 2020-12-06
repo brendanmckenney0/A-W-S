@@ -52,6 +52,16 @@ print(intro_text)
 
 
 def bulk_retriever(url):
+  """Retrieve html content from a website using url
+
+    Function logic:
+    1. Set "response" for content gathered from url
+    2. Set "content" variable for BeautifulSoup html.parser result
+    3. Return "content"
+
+    :param url:
+    :return: content
+    """
     global content
 
     response = requests.get(url)
@@ -61,6 +71,19 @@ def bulk_retriever(url):
 
 
 def targeted_search(url_targeted, class_type, class_name):
+    """ Retrieve html content based on class type and class name
+
+    Function Logic:
+    1. Set "response" for content gathered from url
+    2. Set "targeted_content" variable for BeautifulSoup html.parser result
+    3. Set "type1" variable for .fina_all method using "targeted_content" data with given class_type and class_name variables
+    4. return "type1"
+
+    :param url_targeted: URL entered for targeted scrape
+    :param class_type: Class type that user wants to search HTML for
+    :param class_name: Class name that matches class_type that user wants to search HTML for
+    :return: type1
+    """
     global type1
 
     response = requests.get(url_targeted)
@@ -72,11 +95,27 @@ def targeted_search(url_targeted, class_type, class_name):
 
 
 def add_url(url):
+    """ Simple function to add URL to URL history list
+    Function logic:
+    1. Set "entry" variable to equal url entered by user
+    2. Use .append method to delete given url from url_hist list
+
+    :param url: URL gathered by user input for deletion
+    """
     entry = [url]
     url_hist.append(url)
 
 
 def delete_url(url):
+    """ Delete URL history element from url_hist
+    Function logic:
+    1. For loop checking saying we are at "url" variable in "url_hist" list
+    2. If statement checking to see if given url can be found in url_hist in any position
+    3. If element is found use .remove method to remove found list element from the list
+    4. If conditions are not met, print error message
+
+    :param url: specified by user input
+    """
     for url in url_hist:
         if url_hist[0] == url:
             url_hist.remove(url)
