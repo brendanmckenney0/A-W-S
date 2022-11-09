@@ -1,8 +1,3 @@
-# Brendan McKenney
-# CSI-160
-# Professor Blumberg
-
-
 import requests
 from bs4 import BeautifulSoup
 import pyfiglet
